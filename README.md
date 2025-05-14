@@ -10,7 +10,8 @@ This project benchmarks polygon triangulation performance using:
 - **Mapbox GL Native**: A C++ library for rendering interactive, customizable vector maps  
   [GitHub](https://github.com/mapbox/mapbox-gl-native)
 
----
+
+The result [benchmarks](https://ishape-rust.github.io/iShape-js/triangle/performance/performance.html)
 
 ## How to Run
 
