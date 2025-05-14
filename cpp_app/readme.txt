@@ -1,6 +1,4 @@
-# cpp_triangle_performance_app
-
-## Triangulation performance app
+# Performance Test App
 
 This project benchmarks polygon triangulation performance using:
 
