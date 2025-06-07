@@ -1,5 +1,9 @@
-#ifndef SIMPLE_STAR_TEST_H
-#define SIMPLE_STAR_TEST_H
+//
+// Created by Nail Sharipov on 03.05.2025.
+//
+
+#ifndef CPP_APP_TEST_2_STAR_WITH_HOLE_H
+#define CPP_APP_TEST_2_STAR_WITH_HOLE_H
 
 #include <cstddef>
 #include <vector>
@@ -12,14 +16,14 @@
 using namespace std;
 using Point = array<double, 2>;
 
-class StarTest {
+class StarWithHoleTest {
 public:
     vector<Point> contour(size_t count) const;
     vector<double> points(size_t count) const;
 
 private:
     vector<Point> star(size_t count) const;
-
 };
 
-#endif // SIMPLE_STAR_TEST_H
+
+#endif //CPP_APP_TEST_2_STAR_WITH_HOLE_H

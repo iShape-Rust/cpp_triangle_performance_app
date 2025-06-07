@@ -21,11 +21,16 @@ add_executable(cpp_app
         src/util/args.h
         src/util/star_builder.cpp
         src/util/star_builder.h
-        src/test/test_1_star_with_hole.cpp
-        src/test/test_1_star_with_hole.h
-        src/test/test_2_rect_star_holes.cpp
-        src/test/test_2_rect_star_holes.h
+        src/test/test_2_star_with_hole.cpp
+        src/test/test_2_star_with_hole.h
+        src/test/test_3_star_with_8_holes.cpp
+        src/test/test_3_star_with_8_holes.h
         src/util/triangle_wrapper.h
+        src/test/test_1_spiral.cpp
+        src/test/test_1_spiral.h
+        src/test/test_data.h
+        src/test/runner.cpp
+        src/test/runner.h
 )
 
 target_include_directories(cpp_app PRIVATE lib src)

@@ -1,5 +1,9 @@
-#ifndef SIMPLE_STAR_TEST_H
-#define SIMPLE_STAR_TEST_H
+//
+// Created by Nail Sharipov on 05.06.2025.
+//
+
+#ifndef CPP_APP_TEST_1_SPIRAL_H
+#define CPP_APP_TEST_1_SPIRAL_H
 
 #include <cstddef>
 #include <vector>
@@ -8,18 +12,18 @@
 #include "util/star_builder.h"
 #include "../lib/earcut.hpp"
 #include "util/triangle_wrapper.h"
+#include "test_data.h"
 
 using namespace std;
 using Point = array<double, 2>;
 
-class StarTest {
+class SpiralTest {
 public:
     vector<Point> contour(size_t count) const;
     vector<double> points(size_t count) const;
 
 private:
-    vector<Point> star(size_t count) const;
-
+    vector<Point> spiral(size_t count) const;
 };
 
-#endif // SIMPLE_STAR_TEST_H
+#endif //CPP_APP_TEST_1_SPIRAL_H
