@@ -14,11 +14,11 @@ using Point = array<double, 2>;
 
 class StarTest {
 public:
-    vector<Point> contour(size_t count) const;
-    vector<double> points(size_t count) const;
+    static vector<vector<Point>> shape(size_t count);
+    static vector<double> points(size_t count);
 
 private:
-    vector<Point> star(size_t count) const;
+    static vector<Point> star(size_t count);
 
 };
 

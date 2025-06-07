@@ -19,11 +19,11 @@ using Point = array<double, 2>;
 
 class SpiralTest {
 public:
-    vector<Point> contour(size_t count) const;
-    vector<double> points(size_t count) const;
+    static vector<vector<Point>> shape(size_t count);
+    static vector<double> points(size_t count);
 
 private:
-    vector<Point> spiral(size_t count) const;
+    static vector<Point> spiral(size_t count);
 };
 
 #endif //CPP_APP_TEST_1_SPIRAL_H

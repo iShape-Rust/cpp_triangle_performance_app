@@ -7,50 +7,70 @@
 #include <chrono>
 #include <iostream>
 
-vector<Point> StarWith8HolesTest::contour(size_t count) const {
+vector<vector<Point>> StarWith8HolesTest::shape(size_t count) {
     return star(count);
 }
 
-vector<double> StarWith8HolesTest::points(size_t count) const {
-    auto contour = star(count);
+vector<double> StarWith8HolesTest::points(size_t count) {
+    auto contours = star(count);
+    size_t total_points = 0;
+    for (const auto& ring : contours) {
+        total_points += ring.size();
+    }
+
     vector<double> flat;
-    flat.reserve(contour.size() * 2);
-    for (const auto& p : contour) {
-        flat.push_back(p[0]);
-        flat.push_back(p[1]);
+    flat.reserve(total_points * 2);
+
+    for (const auto& ring : contours) {
+        for (const auto& p : ring) {
+            flat.push_back(p[0]);
+            flat.push_back(p[1]);
+        }
     }
 
     return flat;
 }
 
-vector<Point> StarWith8HolesTest::star(size_t count) const {
-    size_t corners_count = 8;
-    size_t points_per_corner = count / corners_count;
+vector<vector<Point>> StarWith8HolesTest::star(size_t count) {
+    const size_t corners_count = 8;
+    const size_t holes = 8;
+    const size_t main_points_count = count / 2;
+    const size_t holes_points_count = count - main_points_count;
 
-    std::vector<Point> main = StarBuilder::generate_star(
+    const size_t main_points_per_corner = main_points_count / corners_count;
+    const size_t hole_points_per_corner = holes_points_count / (corners_count * holes);
+
+    std::vector<std::vector<Point>> shape;
+    shape.push_back(StarBuilder::generate_star(
             80.0,
             0.3,
-            0.0,                // start_angle
-            points_per_corner,
+            0.0, // start_angle
+            main_points_per_corner,
             corners_count,
-            true,               // direction
-            {0.0, 0.0}          // center
-    );
+            true,
+            {0.0, 0.0}
+    ));
 
-    std::vector<Point> hole = StarBuilder::generate_star(
-            40.0,
-            0.3,
-            0.0,                // start_angle
-            points_per_corner,
-            corners_count,
-            false,              // direction
-            {0.0, 0.0}          // center
-    );
+    const double r = 50.0;
+    const double n = static_cast<double>(holes);
 
-    std::vector<Point> result;
-    result.reserve(main.size() + hole.size());
-    result.insert(result.end(), main.begin(), main.end());
-    result.insert(result.end(), hole.begin(), hole.end());
+    for (size_t i = 0; i < holes; ++i) {
+        double a = static_cast<double>(i) * 2.0 * M_PI / n;
+        double x = r * std::cos(a);
+        double y = r * std::sin(a);
 
-    return result;
+        auto hole = StarBuilder::generate_star(
+                10.0,
+                0.3,
+                0.0, // start_angle
+                hole_points_per_corner,
+                corners_count,
+                false,
+                {x, y}
+        );
+
+        shape.push_back(std::move(hole));
+    }
+
+    return shape;
 }

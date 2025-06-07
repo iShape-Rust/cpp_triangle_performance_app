@@ -4,7 +4,7 @@
 
 #include "runner.h"
 
-size_t Runner::run_earcut(const vector<vector<Point>>& shape, TestData test) const {
+size_t Runner::run_earcut(const vector<vector<Point>>& shape, TestData test) {
     size_t sum = 0;
 
     auto start = std::chrono::high_resolution_clock::now();
@@ -23,7 +23,7 @@ size_t Runner::run_earcut(const vector<vector<Point>>& shape, TestData test) con
 }
 
 
-size_t Runner::run_triangle(const vector<double>& points, TestData test) const {
+size_t Runner::run_triangle(const vector<double>& points, TestData test) {
     size_t sum = 0;
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -39,7 +39,7 @@ size_t Runner::run_triangle(const vector<double>& points, TestData test) const {
     return sum;
 }
 
-size_t Runner::run_points(const vector<double>& points) const {
+size_t Runner::run_points(const vector<double>& points) {
     struct triangulateio in{};
     struct triangulateio out{};
 

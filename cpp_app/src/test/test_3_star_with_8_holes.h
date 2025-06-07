@@ -19,11 +19,11 @@ using Point = array<double, 2>;
 
 class StarWith8HolesTest {
 public:
-    vector<Point> contour(size_t count) const;
-    vector<double> points(size_t count) const;
+    static vector<vector<Point>> shape(size_t count);
+    static vector<double> points(size_t count);
 
 private:
-    vector<Point> star(size_t count) const;
+    static vector<vector<Point>> star(size_t count);
 };
 
 #endif //CPP_APP_TEST_3_STAR_WITH_8_HOLES_H

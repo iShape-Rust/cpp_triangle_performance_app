@@ -1,14 +1,19 @@
 #include "test_0_star.h"
 
-vector<Point> StarTest::contour(size_t count) const {
-    return star(count);
+vector<vector<Point>> StarTest::shape(size_t count) {
+    auto main = star(count);
+    vector<vector<Point>> shape = {
+            main
+    };
+
+    return shape;
 }
 
-vector<double> StarTest::points(size_t count) const {
+vector<double> StarTest::points(size_t count) {
     auto contour = star(count);
     vector<double> flat;
-    flat.reserve(contour.size() * 2);
-    for (const auto& p : contour) {
+    flat.reserve(contour[0].size() * 2);
+    for (const auto &p: contour) {
         flat.push_back(p[0]);
         flat.push_back(p[1]);
     }
@@ -16,7 +21,7 @@ vector<double> StarTest::points(size_t count) const {
     return flat;
 }
 
-vector<Point> StarTest::star(size_t count) const {
+vector<Point> StarTest::star(size_t count) {
     auto r0 = 160.0;
     auto r1 = 80.0;
 

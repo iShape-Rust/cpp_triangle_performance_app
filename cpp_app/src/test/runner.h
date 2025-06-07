@@ -19,11 +19,11 @@ using Point = array<double, 2>;
 
 class Runner {
 public:
-    size_t run_earcut(const vector<vector<Point>>& shape, TestData test) const;
-    size_t run_triangle(const vector<double>& points, TestData test) const;
+    static size_t run_earcut(const vector<vector<Point>>& shape, TestData test);
+    static size_t run_triangle(const vector<double>& points, TestData test);
 
 private:
-    size_t run_points(const vector<double>& points) const;
+    static size_t run_points(const vector<double>& points);
 };
 
 

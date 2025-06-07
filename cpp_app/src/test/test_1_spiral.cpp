@@ -4,11 +4,16 @@
 
 #include "test_1_spiral.h"
 
-vector<Point> SpiralTest::contour(size_t count) const {
-    return spiral(count);
+vector<vector<Point>> SpiralTest::shape(size_t count) {
+    auto main = spiral(count);
+    vector<vector<Point>> shape = {
+            main
+    };
+
+    return shape;
 }
 
-vector<double> SpiralTest::points(size_t count) const {
+vector<double> SpiralTest::points(size_t count) {
     auto contour = spiral(count);
     vector<double> flat;
     flat.reserve(contour.size() * 2);
@@ -20,7 +25,7 @@ vector<double> SpiralTest::points(size_t count) const {
     return flat;
 }
 
-vector<Point> SpiralTest::spiral(size_t count) const {
+vector<Point> SpiralTest::spiral(size_t count) {
     auto s = 10.0;
 
     vector<Point> path_0;
